@@ -2,7 +2,7 @@
 
 function areaTriangle($s1,$s2,$s3)
   {
-	$s = ($s1 + $s2 + $s3) / 2;
+	$s = ($s1 + $s2 + $s3) / 2.0;
 	$arg1 = $s-$s1;
 	$arg2 = $s-$s2;
 	$arg3 = $s-$s3;
