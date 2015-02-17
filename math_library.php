@@ -65,4 +65,29 @@ function factorial($n)
 	return $fact;
   }
   
+function ncr($n,$r)
+{
+   return fact($n)/(fact($r)*fact($n-$r));
+}
+
+function npr($n,$r)
+{
+   return fact($n)/fact($n-$r);
+}
+
+function geometricMean($arr)
+{
+$product=1;
+for($i=0;$i<$arr.length();$i++)
+{
+$product=$product*$arr[$i];
+}
+return sqrt($product);
+}
+
+function distance(x1,y1,x2,y2)
+{
+return sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
+}
+
 	 ?>
