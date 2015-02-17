@@ -1,68 +1,117 @@
 <?php
 
-function areaTriangle($s1,$s2,$s3)
+function test_input($data)
+{
+$data = trim($data);
+$data = stripslashes($data);
+$data = htmlspecialchars($data);
+return $data;
+}
+
+function validate()
+{
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+  if ($_POST["name"] && empty($_POST["name"])) 
   {
-	$s = ($s1 + $s2 + $s3) / 2;
-	$arg1 = $s-$s1;
-	$arg2 = $s-$s2;
-	$arg3 = $s-$s3;
-	return sqrt($s*$arg1*$arg2*$arg3);
-  }
-  
-function areaCuboid($s1,$s2,$s3)
+    $nameErr = "Name is required";
+  } 
+  else 
   {
-	return 2*($s1*$s2 + $s2*$s3 + $s3*$s1);
-  }
-  
-function areaCone($r,$h)
-  {
-    $l =  sqrt($r*$r + $h*$h);
-	return pi()*$r*($r+$l);
-  }
-  
-function volumeCone($r,$h)
-  {
-	return (1/3.0)*pi()*$r*$r*$h;
-  }  
-  
-function areaSphere($r)
-  {
-    return 4* pi()*$r*$r;
-  }
-  
-function volumeSphere($r)
-  {
-    return (4/3.0)*pi()*$r*$r*$r;
+    $name = test_input($_POST["name"]);
   }
 
-function areaHemisphere($r)
+  if ($_POST["email"] && empty($_POST["email"])) 
   {
-	return 2*pi()*$r*$r;
-  }
-  
-function volumeHemisphere($r)
+    $emailErr = "Email is required";
+  } 
+  else 
   {
-    return (2/3.0)*pi()*$r*$r*$r;
+    $email = test_input($_POST["email"]);
   }
-  
-function areaCylinder($r,$h)
+
+  if ($_POST["day"] && empty($_POST["day"])) 
   {
-   return 2*pi()*$r*($r+$h); 
-  }
-  
-function volumeCylinder($r,$h)
+    $dayErr = "Date of birth is required";
+  } 
+  else 
   {
-   return pi()*$r*$r*$h;  
+    $day = test_input($_POST["day"]);
+  }
+
+  if ($_POST["month"] && empty($_POST["month"])) 
+  {
+     $monthErr = "Date of birth is required";
+  } 
+  else 
+  {
+    $month = test_input($_POST["month"]);
+  }
+
+  if ($_POST["gender") && empty($_POST["gender"])) 
+  {
+    $genderErr = "Gender is required";
+  } 
+  else 
+  {
+    $gender = test_input($_POST["gender"]);
   }
   
-function factorial($n)
-  {  
-	$fact=1;
-		for($i=1;$i<=$n;$i+=1)
-		{
-			$fact=$fact*$i;
-		}
-	return $fact;
+  if($_POST["year"] && empty($_POST["year"]))
+  {
+	$yearErr = "Date of birth is required";
+  }
+  else
+  {
+    $year = test_input($_POST["year"]);
+  }  
+
+  if($_POST["phone"] && empty($_POST["phone"]))
+  {
+	$phoneErr = "Phone number is required";
+  }
+  else
+  {
+    $phone = test_input($_POST["phone"]);
   }
   
-	 ?>
+  if($_POST["address"] && empty($_POST["address"])
+  {
+    $addressErr = "Address is required";
+  }
+  else
+  {
+   $address = test_input($_POST["address"]);
+  }
+  
+  if($_POST["pincode"] && empty($_POST["pincode"]))
+  {
+    $pincodeErr = "Pincode is required";
+  }
+  else
+  {
+   $pincode = test_input($_POST["pincode"]);
+  }
+  
+  if($_POST["password"] && empty($_POST["password"]))
+  {
+    $passwordErr = "Password is required";
+  }
+  else
+  {
+   $password = test_input($_POST["password"]);
+  }
+  
+  if($_POST["confirmpassword"] && empty($_POST["confirmpassword"]))
+  {
+    $confirmpasswordErr = "Confirm password is required";
+  }
+  else
+  {
+   $confirmpassword = test_input($_POST["confirmpassword"]);
+  }
+  
+ 
+}
+}
+?>
